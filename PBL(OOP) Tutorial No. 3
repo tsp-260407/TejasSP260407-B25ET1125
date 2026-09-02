@@ -1,0 +1,45 @@
+Program:
+
+#include <iostream>
+void readArray(int arr[], int n) {
+    for (int i = 0; i < n; ++i) std::cin >> arr[i];
+}
+void displayArray(const int arr[], int n) {
+    for (int i = 0; i < n; ++i) std::cout << arr[i] << " ";
+    std::cout << "\n";
+}
+void swap(int &a, int &b) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
+void sortArray(int arr[], int n) {
+    for (int i = 0; i < n - 1; ++i)
+        for (int j = 0; j < n - i - 1; ++j)
+            if (arr[j] > arr[j + 1])
+                swap(arr[j], arr[j + 1]);
+}
+int main() {
+    int n;
+    std::cout << "Enter size: ";
+    std::cin >> n;
+    int arr[n];
+    std::cout << "Enter " << n << " elements:\n";
+    readArray(arr, n);
+    sortArray(arr, n);
+    std::cout << "Sorted: ";
+    displayArray(arr, n);
+    return 0;
+}
+
+Output:
+
+Enter size: 3
+Enter 3 elements:
+55
+89
+13
+Sorted: 13 55 89 
+
+
+=== Code Execution Successful ===
