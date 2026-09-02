@@ -1,0 +1,44 @@
+Program:
+
+#include <iostream>
+using namespace std;
+
+class Area
+{
+public:
+    float area(float r)
+    {
+        return 3.14 * r * r;
+    }
+
+    float area(float b, float h)
+    {
+        return 0.5 * b * h;
+    }
+};
+
+int main()
+{
+    Area a;
+    float r, b, h;
+
+    cout << "Enter radius of circle: ";
+    cin >> r;
+    cout << "Area of Circle = " << a.area(r) << endl;
+
+    cout << "Enter base and height of triangle: ";
+    cin >> b >> h;
+    cout << "Area of Triangle = " << a.area(b, h);
+
+    return 0;
+}
+
+Output:
+
+Enter radius of circle: 5
+Area of Circle = 78.5
+Enter base and height of triangle: 6.3
+5
+Area of Triangle = 15.75
+
+=== Code Execution Successful ===
