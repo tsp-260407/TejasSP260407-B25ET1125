@@ -1,0 +1,46 @@
+Program :
+
+#include <iostream>
+using namespace std;
+
+class Complex {
+    float real, imag;
+
+public:
+    void input() {
+        cin >> real >> imag;
+    }
+
+    void divide(Complex c) {
+        float den = c.real * c.real + c.imag * c.imag;
+
+        float r = (real * c.real + imag * c.imag) / den;
+        float i = (imag * c.real - real * c.imag) / den;
+
+        cout << "Result = " << r << " + " << i << "i";
+    }
+};
+
+int main() {
+    Complex c1, c2;
+
+    cout << "Enter first complex number (real imaginary): ";
+    c1.input();
+
+    cout << "Enter second complex number (real imaginary): ";
+    c2.input();
+
+    c1.divide(c2);
+
+    return 0;
+}
+
+Output :
+
+Enter first complex number (real imaginary): 23
+23
+Enter second complex number (real imaginary): 56
+6
+Result = 0.449559 + 0.362547i
+
+=== Code Execution Successful ===
