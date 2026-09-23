@@ -1,36 +1,36 @@
-#include <iostream>  // Input/output library
-#include <cmath>     // Math library for abs()
+#include <iostream>     // Input/output library
+#include <cmath>      // Math library for abs()
 
-class Complex {      // Complex number class
-private:             // Private data members
-    double real, imag; // Real and imaginary parts
+class Complex {          // Complex number class
+private:                // Private data members
+    double real, imag;    // Real and imaginary parts
 
-public:              // Public methods
+public:                  // Public methods
     // Constructor with default values
     Complex(double r = 0.0, double i = 0.0) : real(r), imag(i) {}
 
-    // Overload division operator
+       // Overload division operator
     Complex operator/(const Complex& other) const {
         // Calculate denominator: c^2 + d^2
         double denom = (other.real * other.real) + (other.imag * other.imag);
         
-        // Check for division by zero
+           // Check for division by zero
         if (denom == 0.0) return Complex(0.0, 0.0); 
         
-        // Real part: (ac + bd) / denom
+          // Real part: (ac + bd) / denom
         double r_part = (real * other.real + imag * other.imag) / denom;
         
-        // Imaginary part: (bc - ad) / denom
+         // Imaginary part: (bc - ad) / denom
         double i_part = (imag * other.real - real * other.imag) / denom;
         
-        // Return result object
+           // Return result object
         return Complex(r_part, i_part);
-    } // End of operator/
+    }          // End of operator/
 
     void print() const { // Print number
-        // Format as a + bi or a - bi
+            // Format as a + bi or a - bi
         std::cout << real << (imag >= 0 ? " + " : " - ") << std::abs(imag) << "i\n";
-    } // End of print
+    }   // End of print
 }; // End of class
 
 int main() { // Main function
