@@ -1,0 +1,52 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+class String
+{
+    char *str;
+
+public:
+    String()
+    {
+        str = new char[50];
+    }
+
+    void Accept()
+    {
+        cout << "Enter string: ";
+        cin >> str;
+    }
+
+    void Display()
+    {
+        cout << str << endl;
+    }
+
+    String(String &s)
+    {
+        str = new char[50];
+        strcpy(str, s.str);
+    }
+
+    ~String()
+    {
+        delete[] str;
+    }
+};
+
+int main()
+{
+    String s1;
+    s1.Accept();
+
+    String s2(s1);
+
+    cout << "Original: ";
+    s1.Display();
+
+    cout << "Copied: ";
+    s2.Display();
+
+    return 0;
+}
