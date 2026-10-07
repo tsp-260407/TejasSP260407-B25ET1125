@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+
+class Employee {
+protected:
+    int id;
+    string name;
+
+public:
+    void getEmployee() {
+        cout << "Enter ID and Name: ";
+        cin >> id >> name;
+    }
+};
+
+class Attendance {
+protected:
+    int total, present;
+
+public:
+    void getAttendance() {
+        cout << "Enter Total Days and Present Days: ";
+        cin >> total >> present;
+    }
+};
+
+class EmployeeDetails : public Employee, public Attendance {
+public:
+    void display() {
+        float percentage = (present * 100.0) / total;
+
+        cout << "\nEmployee ID: " << id;
+        cout << "\nName: " << name;
+        cout << "\nAttendance: " << percentage << "%";
+    }
+};
+
+int main() {
+    EmployeeDetails e;
+
+    e.getEmployee();
+    e.getAttendance();
+    e.display();
+
+    return 0;
+}
