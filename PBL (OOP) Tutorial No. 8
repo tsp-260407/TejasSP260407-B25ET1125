@@ -1,45 +1,69 @@
 #include <iostream>
 using namespace std;
 
-class Employee {
+// Base class 1: Employee
+class Employee
+{
 protected:
     int id;
     string name;
 
 public:
-    void getEmployee() {
+    // Function to get employee details
+    void getEmployee()
+    {
         cout << "Enter ID and Name: ";
         cin >> id >> name;
     }
 };
 
-class Attendance {
+// Base class 2: Attendance
+class Attendance
+{
 protected:
     int total, present;
 
 public:
-    void getAttendance() {
+    // Function to get attendance details
+    void getAttendance()
+    {
         cout << "Enter Total Days and Present Days: ";
         cin >> total >> present;
     }
 };
 
-class EmployeeDetails : public Employee, public Attendance {
+// Derived class
+// Inheriting from both Employee and Attendance
+class EmployeeDetails : public Employee, public Attendance
+{
 public:
-    void display() {
+    // Function to display employee and attendance details
+    void display()
+    {
+        // Calculate attendance percentage
         float percentage = (present * 100.0) / total;
 
+        // Display employee details
         cout << "\nEmployee ID: " << id;
         cout << "\nName: " << name;
+
+        // Display attendance percentage
         cout << "\nAttendance: " << percentage << "%";
     }
 };
 
-int main() {
+int main()
+{
+    // Create object of derived class
     EmployeeDetails e;
 
+    // Get employee details
     e.getEmployee();
+
+    // Get attendance details
     e.getAttendance();
+
+    // Display all details
     e.display();
 
     return 0;
