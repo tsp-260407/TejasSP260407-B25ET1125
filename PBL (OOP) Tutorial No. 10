@@ -1,0 +1,26 @@
+#include <iostream>
+#include <cmath>      
+
+int main() {
+    double number;
+
+    std::cout << "Enter a number to calculate its square root: ";
+    std::cin >> number;
+
+    try {
+        if (number < 0) {
+            throw std::invalid_argument("Cannot calculate the square root of a negative number.");
+        }
+        double result = std::sqrt(number);
+        std::cout << "The square root of " << number << " is: " << result << std::endl;
+    } 
+    catch (const std::invalid_argument& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    } 
+    catch (...) {
+        std::cerr << "An unexpected error occurred." << std::endl;
+    }
+
+    std::cout << "Program execution finished cleanly." << std::endl;
+    return 0;
+}
