@@ -1,0 +1,40 @@
+#include <iostream>              // Header file for input and output
+using namespace std;              // Use the standard namespace
+// Define a class template using generic data type T
+template <class T>
+class MyClass                     // Declare a class named MyClass
+{
+    T data;                       // Declare a variable of type T
+public:                           // Start of public section
+    MyClass(T value)              // Constructor to initialize data
+    {
+        data = value;             // Assign value to data
+    }                             // End of constructor
+    void display()                // Function to display data
+    {
+        cout << "Data: " << data << endl; // Print the stored data
+    }                             // End of display function
+};                                // End of class
+// Define a function template using generic data type T
+template <class T>
+T add(T a, T b)                   // Function to add two values
+{
+    return a + b;                 // Return the sum of a and b
+}                                 // End of function template
+int main()                        // Main function starts
+{
+    MyClass<int> obj1(10);        // Create an integer class object
+    obj1.display();               // Display the integer value
+
+    MyClass<float> obj2(5.5f);    // Create a float class object
+    obj2.display();               // Display the float value
+
+    cout << "Sum of integers: "   // Print the integer sum label
+         << add(10, 20) << endl;  // Call function template for integers
+
+    cout << "Sum of floats: "     // Print the float sum label
+         << add(2.5f, 3.5f)       // Call function template for floats
+         << endl;                 // Move output to the next line
+
+    return 0;                     // End the program successfully
+}                                 // End of main function
