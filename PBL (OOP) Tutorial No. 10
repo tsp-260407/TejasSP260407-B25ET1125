@@ -1,26 +1,38 @@
-#include <iostream>
-#include <cmath>      
+#include <iostream>              // Header file for input and output
+#include <cmath>                 // Header file for math functions
 
-int main() {
-    double number;
+int main()                       // Main function starts
+{
+    double number;               // Declare variable to store input
 
-    std::cout << "Enter a number to calculate its square root: ";
-    std::cin >> number;
+    std::cout << "Enter a number to calculate its square root: "; // Prompt user
+    std::cin >> number;          // Read input from keyboard
 
-    try {
-        if (number < 0) {
+    try                          // Start monitoring block
+    {
+        if (number < 0)          // Check if number is negative
+        {
+            // Throw exception with custom message
             throw std::invalid_argument("Cannot calculate the square root of a negative number.");
-        }
-        double result = std::sqrt(number);
-        std::cout << "The square root of " << number << " is: " << result << std::endl;
-    } 
-    catch (const std::invalid_argument& e) {
-        std::cerr << "Error: " << e.what() << std::endl;
-    } 
-    catch (...) {
-        std::cerr << "An unexpected error occurred." << std::endl;
-    }
+        }                        // End of if statement
+        
+        double result = std::sqrt(number); // Calculate square root
+        
+        std::cout << "The square root of " // Print results
+                  << number << " is: "     // Print original number
+                  << result << std::endl;  // Print calculated result
+    }                            // End of try block
+    catch (const std::invalid_argument& e) // Catch invalid argument error
+    {
+        std::cerr << "Error: "   // Print error label
+                  << e.what()    // Print specific error message
+                  << std::endl;  // Move to next line
+    }                            // End of catch block
+    catch (...)                  // Catch any other unexpected error
+    {
+        std::cerr << "An unexpected error occurred." << std::endl; // Print fallback message
+    }                            // End of catch-all block
 
-    std::cout << "Program execution finished cleanly." << std::endl;
-    return 0;
-}
+    std::cout << "Program execution finished cleanly." << std::endl; // Print final milestone
+    return 0;                    // End the program successfully
+}     
