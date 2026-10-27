@@ -1,0 +1,34 @@
+#include <iostream> // Includes the C++ input-output library for cout
+
+// A C++ struct to simulate a file inside the memory
+struct MockFile {
+    const char* data = "Hello! This is a test file for the copy program."; // Holds the file content
+    int position = 0; // Tracks the current reading position
+};
+
+int main() { // Main entry point of the C++ program
+    // --- STEP 1: INITIALIZE MOCK FILES ---
+    MockFile sourceFile; // Creates the simulated source file
+    char destinationFile[100]; // Creates a character array to act as the destination file buffer
+    int destIndex = 0; // Index pointer for the destination file array
+
+    std::cout << "--- Starting C++ File Copy Simulation ---" << std::endl; // Prints a status header
+
+    // --- STEP 2: COPY CHARACTER BY CHARACTER ---
+    char ch = sourceFile.data[sourceFile.position]; // Reads the very first character from the source
+    
+    while (ch != '\0') { // Loops until it hits the end of the text string
+        destinationFile[destIndex] = ch; // Copies the character into the destination buffer
+        destIndex++; // Moves the destination pointer to the next spot
+        sourceFile.position++; // Moves the source file pointer forward
+        ch = sourceFile.data[sourceFile.position]; // Reads the next character from the source
+    } // Ends the copy loop
+    
+    destinationFile[destIndex] = '\0'; // Adds the string terminator to the destination array
+
+    // --- STEP 3: PRINT THE RESULT ---
+    std::cout << "File copied successfully without using disk streams!" << std::endl; // Prints success message
+    std::cout << "Copied Content: " << destinationFile << std::endl; // Displays the final copied text
+
+    return 0; // Signals that the C++ program ran perfectly
+} // Ends the main function
