@@ -1,0 +1,35 @@
+#include <iostream> // Includes the input-output library for cout
+
+namespace PlayerOne { // Creates a clean space named PlayerOne
+    int id = 101; // Stores Player 1's numerical ID code
+    int score = 4500; // Stores Player 1's current game score
+    
+    void displayStats() { // Defines a function inside PlayerOne
+        std::cout << "P1 ID: " << id << " | Score: " << score << std::endl; // Prints Player 1 stats
+    } // Ends the displayStats function
+} // Ends the PlayerOne namespace
+
+namespace PlayerTwo { // Creates a separate space named PlayerTwo
+    int id = 202; // Stores Player 2's numerical ID code 
+    int score = 6200; // Stores Player 2's score without touching Player 1
+    
+    void displayStats() { // Defines an identical function inside PlayerTwo
+        std::cout << "P2 ID: " << id << " | Score: " << score << std::endl; // Prints Player 2 stats
+    } // Ends the displayStats function
+} // Ends the PlayerTwo namespace
+
+int main() { // Main execution point of the C++ program
+    std::cout << "--- Using Scope Resolution (::) ---" << std::endl; // Prints a header line
+    
+    PlayerOne::displayStats(); // Tells compiler to run displayStats from PlayerOne
+    PlayerTwo::displayStats(); // Tells compiler to run displayStats from PlayerTwo
+    
+    std::cout << "\n--- Using Local 'using' Shortcut ---" << std::endl; // Prints a header line
+    
+    { // Starts a temporary local block scope
+        using namespace PlayerTwo; // Opens up PlayerTwo namespace inside this block only
+        std::cout << "Direct ID: " << id << std::endl; // Prints PlayerTwo's ID directly
+    } // Ends the local block scope 
+    
+    return 0; // Signals that the program ran successfully
+} // Ends the main function
