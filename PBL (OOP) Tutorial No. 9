@@ -1,58 +1,57 @@
-#include <iostream>
-using namespace std;
+#include <iostream>                     // Header file for input and output
+using namespace std;                    // Uses standard namespace
 
 // Base class
-class Vehicle
+class Vehicle                            // Defines base class Vehicle
 {
-public:
-    // Virtual function
-    virtual void showDetails()
+public:                                  // Public members of the class
+
+    virtual void showDetails()           // Declares a virtual function
     {
         cout << "This is a vehicle." << endl;
+        // Displays vehicle message
     }
-};
+};                                       // Ends Vehicle class
+
 // Derived class Car
-class Car : public Vehicle
+class Car : public Vehicle               // Car inherits Vehicle class
 {
-public:
-    // Function overriding
-    void showDetails()
+public:                                  // Public members of Car class
+
+    void showDetails()                   // Overrides base class function
     {
         cout << "This is a Car." << endl;
+        // Displays car message
     }
-};
+};                                       // Ends Car class
+
 // Derived class Bike
-class Bike : public Vehicle
+class Bike : public Vehicle              // Bike inherits Vehicle class
 {
-public:
-    // Function overriding
-    void showDetails()
+public:                                  // Public members of Bike class
+
+    void showDetails()                   // Overrides base class function
     {
         cout << "This is a Bike." << endl;
+        // Displays bike message
     }
-};
-int main()
+};                                       // Ends Bike class
+
+int main()                               // Main function starts
 {
-    // Base class pointer
-    Vehicle *v;
+    Vehicle *v;                          // Declares a base class pointer
 
-    // Create Car object
-    Car c;
+    Car c;                               // Creates an object of Car class
 
-    // Store address of Car object in Vehicle pointer
-    v = &c;
+    v = &c;                              // Stores address of Car object in pointer
 
-    // Calls Car's showDetails() due to virtual function
-    v->showDetails();
+    v->showDetails();                    // Calls Car's function using virtual function
 
-    // Create Bike object
-    Bike b;
+    Bike b;                              // Creates an object of Bike class
 
-    // Store address of Bike object in Vehicle pointer
-    v = &b;
+    v = &b;                              // Stores address of Bike object in pointer
 
-    // Calls Bike's showDetails() due to virtual function
-    v->showDetails();
+    v->showDetails();                    // Calls Bike's function using virtual function
 
-    return 0;
-}
+    return 0;                            // Returns 0 (successful execution)
+}                                        // Ends main function
