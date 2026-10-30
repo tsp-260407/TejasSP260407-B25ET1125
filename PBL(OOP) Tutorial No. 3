@@ -1,45 +1,49 @@
-Program:
+#include <iostream>                    // Header file for input and output
 
-#include <iostream>
-void readArray(int arr[], int n) {
-    for (int i = 0; i < n; ++i) std::cin >> arr[i];
+void readArray(int arr[], int n) {      // Function to read array elements
+    for (int i = 0; i < n; ++i)        // Loop runs from 0 to n-1
+        std::cin >> arr[i];            // Takes array elements from user
 }
-void displayArray(const int arr[], int n) {
-    for (int i = 0; i < n; ++i) std::cout << arr[i] << " ";
-    std::cout << "\n";
+
+void displayArray(const int arr[], int n) { // Function to display array
+    for (int i = 0; i < n; ++i)       // Loop to access each element
+        std::cout << arr[i] << " ";    // Prints array elements
+    std::cout << "\n";                 // Moves cursor to next line
 }
-void swap(int &a, int &b) {
-    int temp = a;
-    a = b;
-    b = temp;
+
+void swap(int &a, int &b) {            // Function to swap two numbers
+    int temp = a;                      // Stores value of a in temp
+    a = b;                             // Assigns value of b to a
+    b = temp;                          // Assigns temp value to b
 }
-void sortArray(int arr[], int n) {
-    for (int i = 0; i < n - 1; ++i)
-        for (int j = 0; j < n - i - 1; ++j)
-            if (arr[j] > arr[j + 1])
-                swap(arr[j], arr[j + 1]);
+
+void sortArray(int arr[], int n) {     // Function to sort the array
+    for (int i = 0; i < n - 1; ++i)   // Outer loop for sorting passes
+        for (int j = 0; j < n - i - 1; ++j) // Inner loop for comparison
+            if (arr[j] > arr[j + 1])  // Checks if current element is greater
+                swap(arr[j], arr[j + 1]); // Swaps elements if condition is true
 }
-int main() {
-    int n;
-    std::cout << "Enter size: ";
-    std::cin >> n;
-    int arr[n];
+
+int main() {                           // Main function starts
+
+    int n;                             // Declares variable for array size
+
+    std::cout << "Enter size: ";       // Asks user to enter array size
+    std::cin >> n;                     // Takes array size from user
+
+    int arr[n];                        // Declares an array of size n
+
     std::cout << "Enter " << n << " elements:\n";
-    readArray(arr, n);
-    sortArray(arr, n);
-    std::cout << "Sorted: ";
-    displayArray(arr, n);
-    return 0;
-}
+    // Asks user to enter array elements
 
-Output:
+    readArray(arr, n);                 // Calls function to read elements
 
-Enter size: 3
-Enter 3 elements:
-55
-89
-13
-Sorted: 13 55 89 
+    sortArray(arr, n);                 // Calls function to sort elements
 
+    std::cout << "Sorted: ";           // Displays sorted array heading
 
-=== Code Execution Successful ===
+    displayArray(arr, n);              // Calls function to display array
+
+    return 0;                          // Returns 0 (successful execution)
+
+}                                      // Ends main function
