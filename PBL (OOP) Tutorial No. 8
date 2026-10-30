@@ -1,70 +1,69 @@
-#include <iostream>
-using namespace std;
+#include <iostream>                     // Header file for input and output
+using namespace std;                    // Uses standard namespace
 
-// Base class 1: Employee
-class Employee
+// Base class 1: Employee                 // First base class
+class Employee                           // Defines Employee class
 {
-protected:
-    int id;
-    string name;
+protected:                               // Members accessible in derived class
+    int id;                              // Declares employee ID
+    string name;                         // Declares employee name
 
-public:
-    // Function to get employee details
-    void getEmployee()
+public:                                  // Public members of the class
+
+    void getEmployee()                   // Function to get employee details
     {
-        cout << "Enter ID and Name: ";
-        cin >> id >> name;
-    }
-};
+        cout << "Enter ID and Name: ";   // Asks user to enter ID and name
+        cin >> id >> name;               // Takes ID and name from user
+    }                                    // Ends getEmployee function
+};                                       // Ends Employee class
 
-// Base class 2: Attendance
-class Attendance
+// Base class 2: Attendance               // Second base class
+class Attendance                         // Defines Attendance class
 {
-protected:
-    int total, present;
+protected:                               // Members accessible in derived class
+    int total, present;                  // Declares total and present days
 
-public:
-    // Function to get attendance details
-    void getAttendance()
+public:                                  // Public members of the class
+
+    void getAttendance()                 // Function to get attendance details
     {
         cout << "Enter Total Days and Present Days: ";
-        cin >> total >> present;
-    }
-};
+        // Asks user to enter total and present days
 
-// Derived class
-// Inheriting from both Employee and Attendance
+        cin >> total >> present;         // Takes attendance details from user
+    }                                    // Ends getAttendance function
+};                                       // Ends Attendance class
+
+// Derived class                          // Class that inherits two base classes
 class EmployeeDetails : public Employee, public Attendance
+// Inherits Employee and Attendance classes using multiple inheritance
 {
-public:
-    // Function to display employee and attendance details
-    void display()
+public:                                  // Public members of derived class
+
+    void display()                       // Function to display details
     {
-        // Calculate attendance percentage
         float percentage = (present * 100.0) / total;
+        // Calculates attendance percentage
 
-        // Display employee details
         cout << "\nEmployee ID: " << id;
-        cout << "\nName: " << name;
+        // Displays employee ID
 
-        // Display attendance percentage
+        cout << "\nName: " << name;      // Displays employee name
+
         cout << "\nAttendance: " << percentage << "%";
-    }
-};
+        // Displays attendance percentage
+    }                                    // Ends display function
+};                                       // Ends EmployeeDetails class
 
-int main()
+int main()                               // Main function starts
 {
-    // Create object of derived class
-    EmployeeDetails e;
+    EmployeeDetails e;                   // Creates object of derived class
 
-    // Get employee details
-    e.getEmployee();
+    e.getEmployee();                     // Calls employee details function
 
-    // Get attendance details
-    e.getAttendance();
+    e.getAttendance();                   // Calls attendance details function
 
-    // Display all details
-    e.display();
+    e.display();                         // Calls display function
 
-    return 0;
-}
+    return 0;                            // Returns 0 (successful execution)
+}                                        // Ends main function
