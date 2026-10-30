@@ -1,52 +1,56 @@
-#include <iostream>
-#include <cstring>
-using namespace std;
+#include <iostream>                 // Header file for input and output
+#include <cstring>                  // Header file for string functions
+using namespace std;                // Uses standard namespace
 
-class String
+class String                         // Defines a class named String
 {
-    char *str;
+    char *str;                       // Declares a character pointer
 
-public:
-    String()
+public:                              // Public members of the class
+
+    String()                         // Default constructor
     {
-        str = new char[50];
-    }
+        str = new char[50];          // Dynamically allocates memory for 50 characters
+    }                                // Ends default constructor
 
-    void Accept()
+    void Accept()                    // Function to accept a string
     {
-        cout << "Enter string: ";
-        cin >> str;
-    }
+        cout << "Enter string: ";    // Asks user to enter a string
+        cin >> str;                  // Takes string input from user
+    }                                // Ends Accept function
 
-    void Display()
+    void Display()                   // Function to display a string
     {
-        cout << str << endl;
-    }
+        cout << str << endl;         // Prints the stored string
+    }                                // Ends Display function
 
-    String(String &s)
+    String(String &s)                // Copy constructor
     {
-        str = new char[50];
-        strcpy(str, s.str);
-    }
+        str = new char[50];          // Allocates separate memory for copied string
+        strcpy(str, s.str);          // Copies original string into new memory
+    }                                // Ends copy constructor
 
-    ~String()
+    ~String()                        // Destructor
     {
-        delete[] str;
-    }
-};
+        delete[] str;                // Frees dynamically allocated memory
+    }                                // Ends destructor
 
-int main()
+};                                   // Ends String class
+
+int main()                           // Main function starts
 {
-    String s1;
-    s1.Accept();
+    String s1;                       // Creates first object using default constructor
 
-    String s2(s1);
+    s1.Accept();                     // Accepts string for first object
 
-    cout << "Original: ";
-    s1.Display();
+    String s2(s1);                   // Creates second object using copy constructor
 
-    cout << "Copied: ";
-    s2.Display();
+    cout << "Original: ";            // Displays original string heading
+    s1.Display();                    // Displays original string
 
-    return 0;
-}
+    cout << "Copied: ";              // Displays copied string heading
+    s2.Display();                    // Displays copied string
+
+    return 0;                        // Returns 0 (successful execution)
+
+}                                    // Ends main function
