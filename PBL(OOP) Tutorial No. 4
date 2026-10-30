@@ -1,46 +1,50 @@
-Program :
+#include <iostream>                  // Header file for input and output
+using namespace std;                 // Uses standard namespace
 
-#include <iostream>
-using namespace std;
+class Complex {                      // Defines a class named Complex
 
-class Complex {
-    float real, imag;
+    float real, imag;                // Declares real and imaginary variables
 
-public:
-    void input() {
-        cin >> real >> imag;
-    }
+public:                              // Public members can be accessed outside class
 
-    void divide(Complex c) {
+    void input() {                   // Function to input complex number
+        cin >> real >> imag;         // Takes real and imaginary parts
+    }                                // Ends input function
+
+    void divide(Complex c) {         // Function to divide two complex numbers
+
         float den = c.real * c.real + c.imag * c.imag;
+        // Calculates denominator using real² + imaginary²
 
         float r = (real * c.real + imag * c.imag) / den;
+        // Calculates the real part of the division
+
         float i = (imag * c.real - real * c.imag) / den;
+        // Calculates the imaginary part of the division
 
         cout << "Result = " << r << " + " << i << "i";
-    }
-};
+        // Displays the final complex number
 
-int main() {
-    Complex c1, c2;
+    }                                // Ends divide function
+
+};                                   // Ends class Complex
+
+int main() {                         // Main function starts
+
+    Complex c1, c2;                  // Creates two objects of Complex class
 
     cout << "Enter first complex number (real imaginary): ";
-    c1.input();
+    // Asks user to enter first complex number
+
+    c1.input();                      // Calls input function for first object
 
     cout << "Enter second complex number (real imaginary): ";
-    c2.input();
+    // Asks user to enter second complex number
 
-    c1.divide(c2);
+    c2.input();                      // Calls input function for second object
 
-    return 0;
-}
+    c1.divide(c2);                   // Divides first complex number by second
 
-Output :
+    return 0;                        // Returns 0 (successful execution)
 
-Enter first complex number (real imaginary): 23
-23
-Enter second complex number (real imaginary): 56
-6
-Result = 0.449559 + 0.362547i
-
-=== Code Execution Successful ===
+}                                    // Ends main function
