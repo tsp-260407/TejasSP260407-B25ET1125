@@ -1,32 +1,29 @@
-Program:
+#include <iostream>                 // Header file for input and output
+using namespace std;                // Uses standard namespace
 
-#include <iostream>
-using namespace std;
+int main() {                        // Main function starts
 
-int main() {
-    int n;
-    cout << "Enter the number of rows: ";
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        int num = 1;
-        for (int j = 0; j < n - i; j++) {
-            cout << " ";
+    int n;                          // Declares variable n
+
+    cout << "Enter the number of rows: "; // Asks user for rows
+    cin >> n;                       // Takes input from user
+
+    for (int i = 0; i < n; i++) {   // Loop for rows
+
+        int num = 1;                // Initializes num with 1
+
+        for (int j = 0; j < n-i; j++) { // Loop for printing spaces
+            cout << " ";            // Prints spaces
         }
-        for (int j = 0; j <= i; j++) {
-            cout << num << " ";
-            num = num * (i - j) / (j + 1);
+
+        for (int j = 0; j <= i; j++) { // Loop for printing numbers
+            cout << num << " ";     // Prints current number
+
+            num = num * (i-j) / (j+1); // Calculates next number
         }
-        cout << endl;
+
+        cout << endl;               // Moves to next line
     }
-    return 0;
+
+    return 0;                       // Ends program successfully
 }
-
-
-Output:
-Enter the number of rows: 3
-   1 
-  1 1 
- 1 2 1 
-
-
-=== Code Execution Successful ===
